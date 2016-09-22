@@ -20,6 +20,8 @@ diferencaTres x y z = abs (x - y) > z
 addDigit x y = if x >= 0 
 		then (x * 10) + y
 		else (x * 10) - y
+--Ou
+addDigit' x y = (x * 10) + if x >= 0 then y else (-y)
 
 -- Exercicio 4
 
