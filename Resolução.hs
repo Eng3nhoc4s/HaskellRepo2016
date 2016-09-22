@@ -49,7 +49,9 @@ tiraPrimeiroUltimo x = tail(init x)
 
 -- d)
 
-segundoElemento x = if (length x) >= 2 then [x!!1] else []
+segundoElemento x = x!!1
+--OU
+segundoElemento x = head(tail x)
 
 -- e)
 
