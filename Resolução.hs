@@ -8,8 +8,8 @@ somaTres x y z = x + y + z
 -- b)
 
 somaTresPositivos x y z = if x > 0 && y > 0 && z > 0
-							then x + y + z
-							else 0
+				then x + y + z
+				else 0
 							
 -- Exercicio 2
 
@@ -18,8 +18,8 @@ diferencaTres x y z = mod (x - y) > z
 -- Exercicio 3
 
 addDigit x y = if x > 0 
-					then (x * 10) + y
-					else (x * 10) - y
+		then (x * 10) + y
+		else (x * 10) - y
 
 -- Exercicio 4
 
