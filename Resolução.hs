@@ -59,6 +59,8 @@ penultimoElemento x = last (init x)
 
 -- f)
 
+invetExceptUltimo xs = head xs : reverse (tail xs)
+-- ou
 inverteExceptoUltimo (x:xs) = x : (reverse xs)
 
 -- g)
