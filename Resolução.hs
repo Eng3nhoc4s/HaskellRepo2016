@@ -44,3 +44,23 @@ estaVazia x = null x
 -- c)
 
 tiraPrimeiroUltimo x = tail(init x)
+
+-- d)
+
+segundoElemento x = if (length x) >= 2 then [x!!1] else []
+
+-- e)
+
+penultimoElemento x = last (init x)
+
+-- f)
+
+inverteExceptoUltimo (x:xs) = x : (reverse xs)
+
+-- g)
+
+somaPrimeiros5 x = sum (take 5 x)
+
+-- h)
+
+somaNPrimeiros n x = sum (take n x)
