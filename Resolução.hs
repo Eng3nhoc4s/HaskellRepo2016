@@ -17,7 +17,7 @@ diferencaTres x y z = abs (x - y) > z
 
 -- Exercicio 3
 
-addDigit x y = if x > 0 
+addDigit x y = if x >= 0 
 		then (x * 10) + y
 		else (x * 10) - y
 
