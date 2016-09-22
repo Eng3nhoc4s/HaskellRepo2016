@@ -20,7 +20,7 @@ diferencaTres x y z = abs (x - y) > z
 addDigit x y = if x >= 0 
 		then (x * 10) + y
 		else (x * 10) - y
---Ou
+--OU
 addDigit' x y = (x * 10) + if x >= 0 then y else (-y)
 
 -- Exercicio 4
@@ -51,7 +51,7 @@ tiraPrimeiroUltimo x = tail(init x)
 
 segundoElemento x = x!!1
 --OU
-segundoElemento x = head(tail x)
+segundoElemento' x = head(tail x)
 
 -- e)
 
