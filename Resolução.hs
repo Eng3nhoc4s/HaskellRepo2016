@@ -13,7 +13,7 @@ somaTresPositivos x y z = if x > 0 && y > 0 && z > 0
 							
 -- Exercicio 2
 
-diferencaTres x y z = mod (x - y) > z
+diferencaTres x y z = abs (x - y) > z
 
 -- Exercicio 3
 
