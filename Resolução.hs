@@ -95,3 +95,22 @@ triploPitagorico n = [(x,y,z) | x <- [1..n], y <- [1..n], z <- [1..n], (x^2 + y^
 
 factors n = [x | x <- [1..(n-1)], (mod n x) == 0]
 perfects n = [x | x <- [1..n], x == sum(factors x)]
+
+-- Exercicio 11
+
+powers :: [Int]
+powers = [ x^2 | x <- [1..]]
+
+-- Exercicio 12
+
+reproduce :: [Int] -> [Int]
+reproduce xs = concat [ replicate x x | x <- xs]
+
+-- Exercicio 13
+
+pairs :: (Num a, Eq a, Enum a) => a -> [(a, a)]
+pairs n = [ (x,y) | x <- [1..n], y <- [x..n]]
+
+-- Exercicio 14
+
+scprod xs = [ fst x * snd x | x <- xs]
