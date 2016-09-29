@@ -113,4 +113,7 @@ pairs n = [ (x,y) | x <- [1..n], y <- [x..n]]
 
 -- Exercicio 14
 
-scprod xs = [ fst x * snd x | x <- xs]
+scprod xs ys = sum [x * y | (x,y) <- zip xs ys]
+
+-- Exercício 15
+
