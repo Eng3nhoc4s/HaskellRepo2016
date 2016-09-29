@@ -117,3 +117,4 @@ scprod xs ys = sum [x * y | (x,y) <- zip xs ys]
 
 -- Exercício 15
 
+geradorSimples = concat[[(x,y) <- [1,2,3]] | y <- [4,5,6]]
