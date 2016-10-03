@@ -1,4 +1,6 @@
--- Capitulo 1
+-- ------------ --
+-- 	CAPITULO 1 	--
+-- ------------ --
 
 -- Exercicio 1
 -- a)
@@ -117,4 +119,97 @@ scprod xs ys = sum [x * y | (x,y) <- zip xs ys]
 
 -- Exercício 15
 
-geradorSimples = concat[[(x,y) <- [1,2,3]] | y <- [4,5,6]]
+geradorSimples = concat[[(x,y) | x <- [1,2,3]] | y <- [4,5,6]]
+
+-- Exercicio 16
+
+-- a) É expressão - Lista de Caracteres
+-- b) É expressão - Triplo de caracteres
+-- c) Não é expressão - Os elementos têm de ser do mesmo tipo
+-- d) É expressão - Lista de Booleanos
+-- e) É expressão - Lista de Strings(Lista de caracteres)
+-- f) É expressão - Lista de Tuplos com um caracter e um booleano
+-- g) É expressão - Lista de Booleanos
+-- h) É expressão - Tuplo com lista de caracteres e lista de funcoes
+-- i) Não é expressão
+
+
+-- ------------ --
+-- 	CAPITULO 2 	--
+-- ------------ --
+
+-- Exercício 1
+
+-- a) Triplo
+-- b) Int
+-- c) Lista de Tuplos
+-- d) Tuplo
+-- e) Lista de Tuplos
+-- f) Lista de Strings
+-- g) Lista de Listas de Strings
+
+-- Exercicio 2
+
+-- a) False
+-- b) GT (Greater Than)
+-- c) "TrueorFalse"
+-- d) "\"As armas e os baroes\""
+-- e) *** Exception: Prelude.read: no parse
+-- f) True
+-- g) [False,True]
+-- h) []
+-- i) 5.5
+-- j) No instance for (Fractional Int) arising from the literal ‘3.5’
+-- k) 5.5
+
+-- Exercício 3
+
+-- a)
+f1 :: (Ord a) => a -> a -> Bool
+f1 x y = x < y
+
+f2 :: Eq a => a -> a -> Bool -> Bool
+f2 x y z = (x == y) || z
+
+f3 :: Bool -> Bool -> Bool -> Bool
+f3 x y z = x == (y || z)
+
+f4 :: (Show a) => a -> [Char] -> [Char]
+f4 x y = show x ++ y
+
+f5 :: (Show a) => [a] -> [a] -> [Char]
+f5 x y = show (x ++ y)
+
+f6 :: (Ord a, Num a) => a -> a -> a -> Bool
+f6 x y z = (x + y) > z
+
+
+-- ------------ --
+-- 	CAPITULO 3 	--
+-- ------------ --
+
+-- Exercício 1
+
+-- a)
+primeiroElemento (x,_) = x
+ 
+-- b)
+trocaElementos (x,y) = (y,x)
+
+-- c)
+primeiroDoTriplo (x,_,_) = x
+ 
+-- d)
+trocaXYdoTriplo (x,y,z) = (y,x,z)
+
+-- e)
+segundoDaLista (x:y:_) = y
+
+-- f)
+
+sndElemDoPrimeiroParListaPares ((x,y):_) = y
+
+-- Exercício 2
+
+-- A funcao add1 soma os elementos de um tuplo e a funcao
+-- add2 soma dois numeros inteiros
