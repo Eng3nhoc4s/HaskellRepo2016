@@ -155,6 +155,8 @@ geradorSimples = concat[[(x,y) | x <- [1,2,3]] | y <- [4,5,6]]
 -- c) "TrueorFalse"
 -- d) "\"As armas e os baroes\""
 -- e) *** Exception: Prelude.read: no parse
+-- read "True" :: Bool
+-- True
 -- f) True
 -- g) [False,True]
 -- h) []
