@@ -140,7 +140,7 @@ geradorSimples = concat[[(x,y) | x <- [1,2,3]] | y <- [4,5,6]]
 
 -- Exercício 1
 
--- a) Triplo de Doubles (Double, Double, Double)
+-- a) Triplo de Doubles (Double, Double, Double-- a) Triplo de Doubles (Double, Double, Double)
 -- b) Int
 -- c) Lista de Tuplos de Float [(Double,Double)]
 -- d) Tuplo (Strings,Int,[(String,Int)])
@@ -165,6 +165,10 @@ geradorSimples = concat[[(x,y) | x <- [1,2,3]] | y <- [4,5,6]]
 -- k) 5.5
 
 -- Exercício 3
+-- Função que recebe uma função, um a e devolve um b, a função recebe um valor ordenavel e devolve um valor Nunerico
+-- Ex f x h = if h x < x then x else x+1
+
+-- Exercício 4
 
 -- a)
 f1 :: (Ord a) => a -> a -> Bool
