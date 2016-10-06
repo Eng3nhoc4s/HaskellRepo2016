@@ -140,13 +140,13 @@ geradorSimples = concat[[(x,y) | x <- [1,2,3]] | y <- [4,5,6]]
 
 -- Exercício 1
 
--- a) Triplo
+-- a) Triplo de Doubles (Double, Double, Double)
 -- b) Int
--- c) Lista de Tuplos
--- d) Tuplo
--- e) Lista de Tuplos
--- f) Lista de Strings
--- g) Lista de Listas de Strings
+-- c) Lista de Tuplos de Float [(Double,Double)]
+-- d) Tuplo (Strings,Int,[(String,Int)])
+-- e) Lista de Tuplos [(String,Int,[(String,Int)])]
+-- f) Lista de Strings [Strings]
+-- g) Lista de Listas de Strings [[String]]
 
 -- Exercicio 2
 
