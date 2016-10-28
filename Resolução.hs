@@ -219,3 +219,65 @@ sndElemDoPrimeiroParListaPares ((x,y):_) = y
 
 -- A funcao add1 soma os elementos de um tuplo e a funcao
 -- add2 soma dois numeros inteiros
+
+-- Exercício 3
+-- a)
+hd1 (x:_) = x
+sucessor1 y = succ (hd1 y)
+
+-- b)
+hd2 :: [Int] -> Int
+hd2 (x:_) = x
+sucessor2 y = hd2 y + 1
+
+-- c)
+hd3 :: [a] -> a
+hd3 (x:_) = x
+sucessor3 y = succ (hd3 (y))
+
+-- As funcoes diferem na limitação aos tipos dos quais se pode obter
+-- o sucessor, a funcao do ex a e do ex c permitem qualquer enumeravel
+-- enquanto a da alinea b apenas permite o sucessor de uma lista de ints
+
+
+-- Exercício 4
+
+-- a) f1 dá-nos o antecessor do numero fornecido e 0 quando este numero é 0
+
+-- b) A funcao f2 tem o mesmo efeito que f1 mas implementada através
+-- de if's
+
+-- c) A funcao f3 dá o antecessor do numero fornecido
+
+-- d) A funcao f4 tem o mesmo efeito de f1 e f2 mas implementada
+-- atraves do uso de guardas
+
+
+-- Exercício 5
+
+safetailCondicional (xs) = if null(xs) then [] else tail xs 
+
+safetailGuardas (xs)
+	| null(xs) = []
+	| otherwise = tail xs
+	
+safetailPatternMatching [] = []
+safetailPatternMatching xs = tail xs
+
+-- Exercício 6
+
+True \/ _ = True
+_ \/ True = True
+False \/ False = False
+
+-- OU
+-- False \/ False = False
+-- _ \/ _ = True
+
+
+-- Exercício 7
+
+-- a)
+
+--fromTo _ _ [] = []
+fromTo a b xs = take (b - a + 1) (drop a xs)
