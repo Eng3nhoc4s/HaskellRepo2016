@@ -279,5 +279,11 @@ False \/ False = False
 
 -- a)
 
---fromTo _ _ [] = []
+fromTo _ _ [] = []
 fromTo a b xs = take (b - a + 1) (drop a xs)
+
+cap3_ex7_tail xs = fromTo 1 ((length xs) - 1) xs
+
+cap3_ex7_init xs = fromTo 0 ((length xs) - 2) xs
+
+nth xs n = fromTo n n xs
