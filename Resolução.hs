@@ -287,3 +287,171 @@ cap3_ex7_tail xs = fromTo 1 ((length xs) - 1) xs
 cap3_ex7_init xs = fromTo 0 ((length xs) - 2) xs
 
 nth xs n = fromTo n n xs
+
+-- b)
+
+halve xs = (take (halfL) xs, drop (halfL) xs)
+	where
+		halfL = div (length xs) 2
+		
+		
+-- Exercício 8
+
+-- a) second :: [a] -> a
+
+-- b) swap :: (a,b) -> (b,a)
+
+-- c) pair :: a b -> (a,b)
+
+-- d) double (Num a) => a -> a
+
+-- e) palin :: (Eq a) => [a] -> Bool
+
+-- f) twice :: (a -> a) -> a -> a
+
+
+-- Exercício 9
+
+-- a) ([1,2,3,4],[5])
+
+-- b) True
+
+-- c) "cdefghijklmnopqrstuvwx"
+
+-- d) "pp"
+
+-- e) [(1,'a'),(2,'b'),(3,'c')]
+
+
+-- ------------ --
+-- 	CAPITULO 4 	--
+-- ------------ --
+
+-- Exercicio 1 
+
+-- a)
+
+sum':: Num a => [a] -> a
+sum' [] = 0
+sum' (x:xs) = x + sum' xs
+
+-- b)
+
+replicate' :: Int -> a -> [a]
+replicate' n x
+	| n <= 0 = []
+	| otherwise = x : replicate (n-1) x
+
+-- c) 
+
+maximo :: Ord a => [a] -> a
+maximo (x:[]) = x
+maximo (x:y:xs)
+	| x >= y = maximo(x:xs)
+	| otherwise = maximo (y:xs)
+
+-- d)
+
+elem' :: (Eq a) => a -> [a] -> Bool  
+elem' a [] = False  
+elem' a (x:xs)  
+    | a == x    = True  
+    | otherwise = elem a xs
+	
+-- e)
+
+substitui :: (Eq a) => a -> a -> [a] -> [a]
+substitui _ _ [] = []
+substitui a b (x:xs)
+	| x == a = b : substitui a b xs
+	| otherwise = x : substitui a b xs
+	
+-- f)
+
+altera :: (Ord a) => [a] -> a -> a -> [a]
+altera [] _ _ = []
+altera (x:xs) a b
+	| x < a = b : altera xs a b
+	| otherwise = x : altera xs a b
+	
+-- g)
+
+multiplos :: [Int] -> Int -> [Int]
+multiplos [] _ = []
+multiplos (x:xs) n
+	| mod x n == 0 = x : multiplos xs n
+	| otherwise = multiplos xs n
+
+-- h)
+
+zip' :: [a] -> [b] -> [(a,b)]
+zip' [] _ = []
+zip' _ [] = []
+zip' (x:xs) (y:ys) = (x,y) : zip' xs ys
+
+-- i)
+
+potencias :: Integer -> [Integer] -> [Integer]
+potencias _ [] = []
+potencias n (x:xs) = n^x : potencias n xs
+
+-- j)
+
+posicoes :: [Int] -> Int -> [Int] 
+posicoes [] _ = error("The list is Empty")
+posicoes xs n =
+	aux xs n 0
+	where
+		aux [] _ _ = []
+		aux (x:xs) n acc
+			| mod x n == 0 = acc : aux xs n (acc + 1)
+			| otherwise = aux xs n (acc + 1)
+			
+-- k)
+
+frase :: Int -> [(Int,String)] -> String
+frase _ [] = []
+frase n ((i,s):xs)
+	| i == n = s ++ frase n xs
+	| otherwise = frase n xs
+	
+-- l)
+
+trocaPares :: [a] -> [a]
+trocaPares [] = []
+trocaPares (x:[]) = [x]
+trocaPares (x:y:xs) = y:x :trocaPares xs
+
+-- m)
+
+fusao :: (Ord a, Num b) => [(a,b)] -> [(a,b)] -> [(a,b)]
+fusao [] y = y
+fusao x [] = x
+fusao ((a1,b1):xs) ((a2,b2):ys)
+	| a1 == a2 = (a1, b1 + b2) : fusao xs ys
+	| a1 > a2 = (a2,b2) : fusao ((a1,b1):xs) ys
+	| a1 < a2 = (a1,b1) : fusao xs ((a2,b2):ys)
+
+-- Exercicio 2
+
+repBinaria d
+	| d < 2 = d
+	| otherwise = (mod d 2) + (repBinaria (div d 2)*10)
+	
+-- Exercicio 3
+
+odioso :: Int -> Bool
+odioso n
+	| n < 0 = False
+	| mod (qtdUns n) 2 == 0 = False
+	| otherwise = True
+	where
+		qtdUns n
+			| n < 2 = n
+			| otherwise = mod n 2 + qtdUns (div n 2)
+			
+-- Exercicio 4 [INCOMPLETO]
+repBaseJ n j
+	| n < 2 = n
+	| otherwise =
+		| j < 9 = (mod n j) + (repBinaria (div n j) * 10)
