@@ -1,5 +1,5 @@
 -- ------------ --
--- 	CAPITULO 1 	--
+--     CAPITULO 1     --
 -- ------------ --
 
 -- Exercicio 1
@@ -10,9 +10,9 @@ somaTres x y z = x + y + z
 -- b)
 
 somaTresPositivos x y z = if x > 0 && y > 0 && z > 0
-				then x + y + z
-				else 0
-							
+                then x + y + z
+                else 0
+                            
 -- Exercicio 2
 
 diferencaTres x y z = abs (x - y) > z
@@ -20,8 +20,8 @@ diferencaTres x y z = abs (x - y) > z
 -- Exercicio 3
 
 addDigit x y = if x >= 0 
-		then (x * 10) + y
-		else (x * 10) - y
+        then (x * 10) + y
+        else (x * 10) - y
 -- OU
 addDigit' x y = (x * 10) + if x >= 0 then y else (-y)
 
@@ -135,7 +135,7 @@ geradorSimples = concat[[(x,y) | x <- [1,2,3]] | y <- [4,5,6]]
 
 
 -- ------------ --
--- 	CAPITULO 2 	--
+--     CAPITULO 2     --
 -- ------------ --
 
 -- Exercício 1
@@ -191,7 +191,7 @@ f6 x y z = (x + y) > z
 
 
 -- ------------ --
--- 	CAPITULO 3 	--
+--     CAPITULO 3     --
 -- ------------ --
 
 -- Exercício 1
@@ -258,9 +258,9 @@ sucessor3 y = succ (hd3 (y))
 safetailCondicional (xs) = if null(xs) then [] else tail xs 
 
 safetailGuardas (xs)
-	| null(xs) = []
-	| otherwise = tail xs
-	
+    | null(xs) = []
+    | otherwise = tail xs
+    
 safetailPatternMatching [] = []
 safetailPatternMatching xs = tail xs
 
@@ -291,10 +291,10 @@ nth xs n = fromTo n n xs
 -- b)
 
 halve xs = (take (halfL) xs, drop (halfL) xs)
-	where
-		halfL = div (length xs) 2
-		
-		
+    where
+        halfL = div (length xs) 2
+        
+        
 -- Exercício 8
 
 -- a) second :: [a] -> a
@@ -323,9 +323,9 @@ halve xs = (take (halfL) xs, drop (halfL) xs)
 -- e) [(1,'a'),(2,'b'),(3,'c')]
 
 
--- ------------ --
--- 	CAPITULO 4 	--
--- ------------ --
+-- ------------- --
+-- CAPITULO 4     --
+-- ------------- --
 
 -- Exercicio 1 
 
@@ -339,16 +339,16 @@ sum' (x:xs) = x + sum' xs
 
 replicate' :: Int -> a -> [a]
 replicate' n x
-	| n <= 0 = []
-	| otherwise = x : replicate (n-1) x
+    | n <= 0 = []
+    | otherwise = x : replicate (n-1) x
 
 -- c) 
 
 maximo :: Ord a => [a] -> a
 maximo (x:[]) = x
 maximo (x:y:xs)
-	| x >= y = maximo(x:xs)
-	| otherwise = maximo (y:xs)
+    | x >= y = maximo(x:xs)
+    | otherwise = maximo (y:xs)
 
 -- d)
 
@@ -357,30 +357,30 @@ elem' a [] = False
 elem' a (x:xs)  
     | a == x    = True  
     | otherwise = elem a xs
-	
+    
 -- e)
 
 substitui :: (Eq a) => a -> a -> [a] -> [a]
 substitui _ _ [] = []
 substitui a b (x:xs)
-	| x == a = b : substitui a b xs
-	| otherwise = x : substitui a b xs
-	
+    | x == a = b : substitui a b xs
+    | otherwise = x : substitui a b xs
+    
 -- f)
 
 altera :: (Ord a) => [a] -> a -> a -> [a]
 altera [] _ _ = []
 altera (x:xs) a b
-	| x < a = b : altera xs a b
-	| otherwise = x : altera xs a b
-	
+    | x < a = b : altera xs a b
+    | otherwise = x : altera xs a b
+    
 -- g)
 
 multiplos :: [Int] -> Int -> [Int]
 multiplos [] _ = []
 multiplos (x:xs) n
-	| mod x n == 0 = x : multiplos xs n
-	| otherwise = multiplos xs n
+    | mod x n == 0 = x : multiplos xs n
+    | otherwise = multiplos xs n
 
 -- h)
 
@@ -400,21 +400,21 @@ potencias n (x:xs) = n^x : potencias n xs
 posicoes :: [Int] -> Int -> [Int] 
 posicoes [] _ = error("The list is Empty")
 posicoes xs n =
-	aux xs n 0
-	where
-		aux [] _ _ = []
-		aux (x:xs) n acc
-			| mod x n == 0 = acc : aux xs n (acc + 1)
-			| otherwise = aux xs n (acc + 1)
-			
+    aux xs n 0
+    where
+        aux [] _ _ = []
+        aux (x:xs) n acc
+            | mod x n == 0 = acc : aux xs n (acc + 1)
+            | otherwise = aux xs n (acc + 1)
+            
 -- k)
 
 frase :: Int -> [(Int,String)] -> String
 frase _ [] = []
 frase n ((i,s):xs)
-	| i == n = s ++ frase n xs
-	| otherwise = frase n xs
-	
+    | i == n = s ++ frase n xs
+    | otherwise = frase n xs
+    
 -- l)
 
 trocaPares :: [a] -> [a]
@@ -428,30 +428,340 @@ fusao :: (Ord a, Num b) => [(a,b)] -> [(a,b)] -> [(a,b)]
 fusao [] y = y
 fusao x [] = x
 fusao ((a1,b1):xs) ((a2,b2):ys)
-	| a1 == a2 = (a1, b1 + b2) : fusao xs ys
-	| a1 > a2 = (a2,b2) : fusao ((a1,b1):xs) ys
-	| a1 < a2 = (a1,b1) : fusao xs ((a2,b2):ys)
+    | a1 == a2 = (a1, b1 + b2) : fusao xs ys
+    | a1 > a2 = (a2,b2) : fusao ((a1,b1):xs) ys
+    | a1 < a2 = (a1,b1) : fusao xs ((a2,b2):ys)
 
 -- Exercicio 2
 
 repBinaria d
-	| d < 2 = d
-	| otherwise = (mod d 2) + (repBinaria (div d 2)*10)
-	
+    | d < 2 = d
+    | otherwise = (mod d 2) + (repBinaria (div d 2)*10)
+    
 -- Exercicio 3
 
 odioso :: Int -> Bool
 odioso n
-	| n < 0 = False
-	| mod (qtdUns n) 2 == 0 = False
-	| otherwise = True
-	where
-		qtdUns n
-			| n < 2 = n
-			| otherwise = mod n 2 + qtdUns (div n 2)
-			
+    | n < 0 = False
+    | mod (qtdUns n) 2 == 0 = False
+    | otherwise = True
+    where
+        qtdUns n
+            | n < 2 = n
+            | otherwise = mod n 2 + qtdUns (div n 2)
+            
 -- Exercicio 4 [INCOMPLETO]
-repBaseJ n j
-	| n < 2 = n
-	| otherwise =
-		| j < 9 = (mod n j) + (repBinaria (div n j) * 10)
+--repBaseJ n j
+--    | n < 2 = n
+--    | otherwise =
+--        | j < 9 = (mod n j) + (repBinaria (div n j) * 10)
+
+-- Exercicio 5
+
+-- a)
+insert :: Ord a => a -> [a] -> [a] 
+insert x [] = [x]
+insert x (l:ls)
+    | x <= l = x:l:ls
+    | otherwise = l : insert x ls
+    
+-- b)
+insertSort :: Ord a =>[a] -> [a]
+insertSort [] = []
+insertSort ls = auxInsertSort ls []
+    where
+        auxInsertSort [] x = x
+        auxInsertSort (l:ls) acc = auxInsertSort ls (insert l acc)
+
+-- Exercício 6
+
+-- a)
+merge :: Ord a =>[a] -> [a] -> [a]
+merge a [] = a
+merge [] b = b
+merge l1@(a:la) l2@(b:lb)
+    | a < b     = a : merge la l2
+    | a == b   = a : merge la lb
+    | a > b     = b : merge l1 lb
+    
+-- b)
+
+firstHalf :: [a] -> [a]
+firstHalf xs = take (length xs `div` 2) xs
+
+secondHalf :: [a] -> [a]
+secondHalf xs = drop (length xs `div` 2) xs
+
+mergesort :: Ord a => [a] -> [a]
+mergesort [] = []
+mergesort [x] = [x]
+mergesort xs = merge (mergesort (firstHalf xs)) (mergesort (secondHalf xs))
+    
+-- ------------- --
+-- CAPITULO 5     --
+-- ------------- --   
+
+-- Exercício 1
+
+-- a) (*2) :: Num a => a -> a
+
+-- b) (>0) :: (Ord a, Num a) => a -> Bool
+
+-- c) (1/) :: Fractional a => a -> a
+
+-- d) (/2) :: Fractional a => a -> a
+    
+-- e) (+1) :: Num a => a -> a
+
+-- f) (++"\n") :: [Char] -> [Char]
+
+
+-- Exercício 2
+
+-- a) add1 (x,y) = x + y
+--     Recebe um tuplo e devolve a soma dos seus elementos
+
+-- b) add2 x y = x + y
+--     Recebe dois numeros e devolve a soma dos mesmos
+
+-- c) add3 x = (x+)
+--     Recebe um numero e devolve uma função que recebe 
+--     um número e que devolve a sua soma
+    
+
+-- Exercício 3
+
+-- a) map (+1) [1..3]
+--     map (+1) [1..3] :: (Num b, Enum b) => [b]
+--     [2,3,4]
+
+-- b) map (>0) [3,-5,-2,0]
+--     map (>0) [3,-5,-2,0] :: [Bool]
+--     [True,False,False,False]
+
+-- c) filter (>5) [1..6]
+--     filter (>5) [1..6] :: (Ord a, Num a, Enum a) => [a]
+--     [6]
+
+-- d) filter even [1..10]
+--     filter even [1..10] :: Integral a => [a]
+--     [2,4,6,8,10]
+
+-- e) filter (>0) (map (^2) [-3..3])
+--     filter (>0) (map (^2) [-3..3]) :: (Ord a, Num a, Enum a) => [a]
+--     [9,4,1,1,4,9]
+
+-- f) map (^2) ( filter (>0) [-3..3])
+--     map (^2) ( filter (>0) [-3..3]) :: (Ord b, Num b, Enum b) => [b]
+--     [1,4,9]
+
+-- g) map (++"s") ["A", "arte" , "do", "aluno"]
+--     map (++"s") ["A", "arte" , "do", "aluno"] :: [[Char]]
+--     ["As","artes","dos","alunos"]
+
+-- h) map ("s"++) ["O", "aluno","bem-comportado"]
+--     map ("s"++) ["O", "aluno","bem-comportado"] :: [[Char]]
+--     ["sO","saluno","sbem-comportado"]
+
+-- i) map (map (\x -> x * x)) [[1,2],[3,4,5]]
+--    map (map (\x -> x * x)) [[1,2],[3,4,5]] :: Num b => [[b]]
+--    [[1,4],[9,16,25]]
+
+
+-- Exercício 4
+
+zipWith' :: (a->b->c) -> [a] -> [b] -> [c]
+zipWith' f (x:xs) (y:ys) = f x y : zipWith f xs ys
+zipWith' _ _ _ = []
+
+
+-- Exercício 5
+
+-- a)
+takeWhile' :: (a -> Bool) -> [a] -> [a]
+takeWhile' _ [] =  []
+takeWhile' p (x:xs)
+            | p x          =  x : takeWhile' p xs
+            | otherwise =  []
+
+            
+-- b) 
+dropWhile' :: (a -> Bool) -> [a] -> [a]
+dropWhile' _ [] =  []
+dropWhile' p (x:xs)
+            | p x          = dropWhile' p xs
+            | otherwise =  xs
+
+
+-- Exercício 6
+
+dropUntil' :: (a -> Bool) -> [a] -> [a]
+dropUntil' _ [] =  []
+dropUntil' p (x:xs)
+            | p x          =  x:xs
+            | otherwise = dropUntil' p xs
+            
+            
+-- Exercício 7
+
+aplica :: [a->a] -> [a] -> [a]
+aplica [] a = a
+aplica _ [] = []
+aplica (f:fs) xs = aplica fs (map f xs)
+
+
+-- Exercício 8 ??
+
+-- Exercício 9
+
+-- a) (\ x -> x + 1) 
+--     (\ x -> x + 1) :: Num a => a -> a
+
+-- b) (\ x -> x + 1) 6       -> 7
+--     (\ x -> x + 1) :: Num a => a -> a 
+
+-- c) (\x -> x > 0)           -> True
+--     (\x -> x > 0) :: (Ord a, Num a) => a -> Bool
+
+-- d) (\x y -> x + y)        -> Soma os valores
+--     (\x y -> x + y) :: Num a => a -> a -> a
+
+-- e) (\ x y -> x + y) 7    -> falta um argumento
+--     (\ x y -> x + y) 7 :: Num a => a -> a
+
+-- f) (\ x y -> x + y) 7 3  -> 10
+--    (\ x y -> x + y) 7 3 :: Num a => a :: Num a => a
+
+--g) (\x -> (\y -> x + y)) 8 9   -> 17
+--    (\x -> (\y -> x + y)) 8 9 :: Num a => a
+
+--h) \ f x -> f ( f x)                             -> Mal formado
+
+--i) (\ f x -> f ( f x)) (\ y -> y + 1) 6   -> 8
+--   (\ f x -> f ( f x)) (\ y -> y + 1) 6 :: Num a => a
+
+
+-- Exercício 10
+
+mult x y z = x * y * z
+multLambda = (\x y z -> x * y * z) 
+
+
+-- Exercício 11 ??
+
+
+-- Exercício 12
+
+isNonBlank :: Char -> Bool
+isNonBlank = (\c -> not $ c == ' ' || c == '\t' || c == '\n')
+
+
+-- Exercício 13 ??
+
+
+-- Exercício 14
+
+--curry’ :: ((a,b)->c)->a->b->c e 
+
+--uncurry’ :: (a->b->c)->(a,b)->c
+
+
+-- Exercício 15
+
+-- a) foldr (\ y z -> y-3 + z) 0 [1..4]
+--     foldr (\ y z -> y-3 + z) 0 [1..4] :: (Num a, Enum a) => a
+
+-- b) foldr (\ x y -> if x>0 then x+y else y) 0 [4,-3,2,-1]
+--     foldr (\ x y -> if x>0 then x+y else y) 0 [4,-3,2,-1] :: (Ord a, Num a) => a
+
+-- c) foldr (\ x y -> x^2 + y) 0 [2..5]
+--     foldr (\ x y -> x^2 + y) 0 [2..5] :: (Num a, Enum a) => a
+
+-- d) foldr (-) 1 [-3..(-1)]
+--     foldr (-) 1 [-3..(-1)] :: (Num b, Enum b) => b
+
+-- e) foldr (\ x s -> if x==’z’ then x:s else s) [] "Oz alunoz dze PzPz
+--     foldr (\ x s -> if x=='z' then x:s else s) [] "Oz alunoz dze PzPz" :: [Char]
+
+
+-- Exercício 16
+
+map' :: (t1 -> t) -> [t1] -> [t]
+map' f [] = []
+map' f xs = foldr (\x xs -> (f x):xs) [] xs
+
+--filter' :: (a -> Bool) -> t a -> [a]
+filter' p xs = foldr (\x xs -> if p x then x : xs else xs) [] xs
+
+
+-- Exercício 17
+
+aplica' :: (a->a) -> [a] -> [a]
+aplica' f xs = foldr (\x acc -> (f x) : acc) [] xs
+
+
+-- Exercício 18
+
+binary2decimal xs = foldr (\(x1,x2) y -> if x2/=0 then (2^x1)+y else y) 0 (zip [0..(length xs)-1] (reverse xs))
+
+
+-- Exercício 19
+
+poly :: Int -> [Int] -> Int
+poly n (x:xs) = (x * (n^length xs)) + poly n xs
+
+
+-- Exercício 20
+
+selectApply :: (a -> b) -> (a -> Bool) -> [a] -> [b]
+selectApply func comp xs= map func (filter comp xs)
+
+
+-- Exercício 21
+
+-- map map :: [a -> b] -> [[a] -> [b]]
+
+-- map . map :: (a -> b) -> [[a]] -> [[b]]
+
+gz :: [[Int]] -> [[Bool]]
+gz ls = map (map (>0)) ls
+
+
+-- Exercício 22 ??
+
+-- Exercício 23 ??
+
+-- Exercício 24 ??
+
+
+-- ------------- --
+-- CAPITULO 6     --
+-- ------------- --
+
+-- Exercício 1
+
+module Lista (Lista (ML),
+empty,
+singleton,
+--insert,
+--union,
+--intersection,
+nullLista,
+--size,
+--member,
+--filter,
+)where
+
+import Data.List
+
+data Lista a = ML [a]
+
+empty :: Lista a
+empty = ML []
+
+singleton :: a -> Lista a
+singleton a = ML [a]
+
+nullLista :: Lista a -> Bool
+nullLista (ML []) = True 
+nullLista (ML [x]) = False 
